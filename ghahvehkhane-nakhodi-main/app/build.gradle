@@ -6,6 +6,12 @@ android {
     namespace 'ir.nakhodi.cafeledger'
     compileSdk 34
 
+    sourceSets {
+        main {
+            aidl.srcDirs = ['src/main/aidl']
+        }
+    }
+
     defaultConfig {
         applicationId "ir.nakhodi.cafeledger"
         minSdk 24
