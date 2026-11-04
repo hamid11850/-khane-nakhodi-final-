@@ -4,59 +4,48 @@ plugins {
 
 android {
     namespace 'ir.nakhodi.cafeledger'
-    compileSdk 35
+    compileSdk 34
 
     defaultConfig {
-        applicationId 'ir.nakhodi.cafeledger'
-        minSdk 23
-        targetSdk 35
-        versionCode 19
-        versionName '3.0.0-offline'
+        applicationId "ir.nakhodi.cafeledger"
+        minSdk 24
+        targetSdk 34
+        versionCode 4
+        versionName "3.0"
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
-
-    buildFeatures {
-        aidl true          // IInAppBillingService (Cafe Bazaar billing)
-    }
-
-    // کلید ثابت: هر APK جدید روی نسخه قبلی (ساخته‌شده با همین کلید) آپدیت می‌شود
     signingConfigs {
-        debug {
-            storeFile file('nakhodi-debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
-        }
         release {
-            if (System.getenv('RELEASE_KEYSTORE_PATH')) {
-                storeFile file(System.getenv('RELEASE_KEYSTORE_PATH'))
-                storePassword System.getenv('RELEASE_KEYSTORE_PASSWORD')
-                keyAlias System.getenv('RELEASE_KEY_ALIAS')
-                keyPassword System.getenv('RELEASE_KEY_PASSWORD')
-            }
+            storeFile file("../app/nakhodi-debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
         }
     }
 
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
-            if (System.getenv('RELEASE_KEYSTORE_PATH')) {
-                signingConfig signingConfigs.release
-            }
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 
 dependencies {
-    // ذخیره‌سازی محلی (بدون هیچ سرویس ابری)
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    
+    // دیتابیس Room
     implementation 'androidx.room:room-runtime:2.6.1'
     annotationProcessor 'androidx.room:room-compiler:2.6.1'
 
-    // اسکنر QR آفلاین
+    // برای اسکن QR
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
     implementation 'com.google.zxing:core:3.5.2'
 }
