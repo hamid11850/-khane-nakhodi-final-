@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Core palette (kept in sync with Ui.java) -->
+    <color name="lux_bg">#F4EADB</color>
+    <color name="lux_gold">#A9481F</color>
+    <color name="lux_text">#2B1B14</color>
+
+    <style name="LuxTheme" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/lux_bg</item>
+        <item name="android:statusBarColor">#2B1B14</item>
+        <item name="android:navigationBarColor">#FBF3E6</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:colorAccent">@color/lux_gold</item>
+        <item name="android:textColorPrimary">@color/lux_text</item>
+        <item name="android:textColorSecondary">#7D5D49</item>
+        <item name="android:textColorHint">#A08672</item>
+        <item name="android:colorControlActivated">@color/lux_gold</item>
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+
+    <!-- Light dialog -->
+    <style name="LuxDialog" parent="@android:style/Theme.Material.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/lux_dialog_bg</item>
+        <item name="android:colorAccent">@color/lux_gold</item>
+        <item name="android:textColorPrimary">@color/lux_text</item>
+        <item name="android:textColorSecondary">#7D5D49</item>
+        <item name="android:textColorHint">#A08672</item>
+        <item name="android:colorControlActivated">@color/lux_gold</item>
+        <item name="android:windowMinWidthMajor">92%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+    </style>
+
+    <!-- Dark dialog -->
+    <style name="LuxDialogDark" parent="@android:style/Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/lux_dialog_bg_dark</item>
+        <item name="android:colorAccent">#E0875A</item>
+        <item name="android:textColorPrimary">#F6E9D8</item>
+        <item name="android:textColorSecondary">#B89B86</item>
+        <item name="android:textColorHint">#9C8472</item>
+        <item name="android:colorControlActivated">#E0875A</item>
+        <item name="android:windowMinWidthMajor">92%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+    </style>
+
+    <!-- Light bottom-sheet style panel (the "more" menu) -->
+    <style name="LuxSheet" parent="@android:style/Theme.Material.Light.Dialog">
+        <item name="android:windowBackground">@drawable/lux_sheet_bg</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:colorAccent">@color/lux_gold</item>
+        <item name="android:textColorPrimary">@color/lux_text</item>
+        <item name="android:backgroundDimAmount">0.45</item>
+    </style>
+
+    <!-- Dark bottom-sheet style panel -->
+    <style name="LuxSheetDark" parent="@android:style/Theme.Material.Dialog">
+        <item name="android:windowBackground">@drawable/lux_sheet_bg_dark</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:colorAccent">#E0875A</item>
+        <item name="android:textColorPrimary">#F6E9D8</item>
+        <item name="android:backgroundDimAmount">0.65</item>
+    </style>
+</resources>
